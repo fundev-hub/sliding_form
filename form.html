@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Login/SignUp</title>
+        <style type="text/css">
+            html{
+                margin: 0px;
+                padding: 0px;
+                box-sizing: border-box;
+                background-color: lightgray;
+            }
+            .container{
+               position: absolute;
+               height: 30em;
+               width: 50em;
+               top: 50%;
+               left: 50%;
+               transform: translate(-50%,-50%);
+               
+            }
+            .button, .form{
+                height:30em;
+                width: 50em;
+                position:absolute;               
+            }
+            .login-btn,.signup-btn{
+                height:100%;
+                width: 50%;
+                background-color: purple;
+                border-radius: 5px;
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transform: translateX(25em);
+                transition: transform 0.5s ease-in-out;
+                
+            }
+            
+            .signin{
+                height:100%;
+                width: 50%;
+                background-color: white;
+                border-radius: 5px;
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transform: translateX(0em);
+                transition: transform 0.5s ease-in-out;
+            }
+            .signup{
+                height:100%;
+                width: 50%;
+                background-color:white;
+                border-radius: 5px;
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transform: translateX(0em);
+                transition: transform 0.5s ease-in-out;
+            }
+            input{
+                background-color: lightgray;
+                border: none;
+                height: 30px;
+                width: 250px;
+                margin: 5px;
+            }
+            label{
+                color: black;
+            }
+            button{
+                padding: 10px 30px;
+                margin: 10px;
+            }
+            a{
+                text-decoration: none;
+            }
+            .left-flip{
+                transform: translateX(0em);
+                z-index: 1;
+            }
+            .right-flip{
+                transform: translateX(25em);
+                z-index: 1;
+            }
+            .signup-btn.left-flip{
+                z-index: 0;
+            }
+            .signin.right-flip{
+                z-index: 0;
+            }
+        </style>
+        <script src="jQuery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(".signup-flip").click(function(){
+                    $(".login-btn ,.signup-btn").addClass("left-flip");
+                })
+                $(".signup-flip").click(function(){
+                    $(".signup ,.signin").addClass("right-flip");
+                })
+                $(".login-flip").click(function(){
+                    $(".login-btn ,.signup-btn").removeClass("left-flip");
+                })
+                $(".login-flip").click(function(){
+                    $(".signup ,.signin").removeClass("right-flip");
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="form">
+                <form action="#">
+                    <div class="signup">
+                        <h1>Sign Up</h1>
+                        <label>First Name</label>                    
+                        <input type="text" name="Username">
+                        <label>Last Name</label> 
+                        <input type="password" name="Password">
+                        <label>Email</label> 
+                        <input type="email" name="email">
+                        <label>Address</label>
+                        <input type="text" name="address">
+                        <button>Sign Up</button>
+                    </div>
+                </form>
+                <div class="login-btn">
+                    <h1>Hello Friend</h1>
+                    <p>Already have an account!</p>
+                    <button class="login-flip"><a href="#">Log In</a></button>
+                </div>
+            </div>
+            <div class="button">
+                <form action="#">
+                    <div class="signin">
+                        <h1>Log In</h1>
+                        <label>Username</label>
+                        <input type="text">
+                        <label>Password</label> 
+                        <input type="text">
+                        <button>Log In</button>
+                    </div>
+                </form>
+                <div class="signup-btn">
+                    <h1>Hello Friend</h1>
+                    <p>New to the page?</p>
+                    <button class="signup-flip"><a href="#">Sign Up</a></button>
+                </div>
+            </div>
+       </div>
+    </body>
+</html>
